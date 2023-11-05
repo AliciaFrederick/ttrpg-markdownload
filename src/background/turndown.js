@@ -115,7 +115,7 @@ var TurndownService = (function () {
 
   rules.readAloud = {
     filter: 'aside.text--quote-box',
-
+    // TODO: Move into aside with logic for class name
     replacement: function (content) {
       content = content.replace(/^\n+|\n+$/g, '');
       content = content.replace(/^/gm, '> ');
@@ -126,7 +126,7 @@ var TurndownService = (function () {
 
   rules.epigraph = {
     filter: 'aside.epigraph',
-
+    // TODO: Move into aside with logic for class name
     replacement: function (content) {
       content = content.replace(/^\n+|\n+$/g, '');
       content = content.replace(/^/gm, '> ');
