@@ -113,6 +113,39 @@ var TurndownService = (function () {
     }
   };
 
+  rules.readAloud = {
+    filter: 'aside.text--quote-box',
+
+    replacement: function (content) {
+      content = content.replace(/^\n+|\n+$/g, '');
+      content = content.replace(/^/gm, '> ');
+      content = content.prefix('> [!text--quote-box] Read aloud \n')
+      return '\n\n' + content + '\n\n'
+    }
+  };
+
+  rules.epigraph = {
+    filter: 'aside.epigraph',
+
+    replacement: function (content) {
+      content = content.replace(/^\n+|\n+$/g, '');
+      content = content.replace(/^/gm, '> ');
+      content = content.prefix('> [!epigraph] \n')
+      return '\n\n' + content + '\n\n'
+    }
+  };
+
+  rules.aside = {
+    filter: 'aside',
+
+    replacement: function (content) {
+      content = content.replace(/^\n+|\n+$/g, '');
+      content = content.replace(/^/gm, '> ');
+      content = content.prefix('> [!aside] \n')
+      return '\n\n' + content + '\n\n'
+    }
+  };
+
   rules.blockquote = {
     filter: 'blockquote',
 
